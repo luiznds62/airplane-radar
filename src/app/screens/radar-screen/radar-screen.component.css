@@ -6,6 +6,18 @@
   height: calc(100% - 64px);
 }
 
+.configuration-bar-radar-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 2%;
+  width: 100%;
+}
+
+#radar-content {
+  margin-top: 2%;
+}
+
 @media (min-width: 768px) and (max-width: 979px) {
   .radar-container {
     height: calc(100% - 64px);
