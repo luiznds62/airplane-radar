@@ -7,12 +7,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RadarScreenComponent} from './screens/radar-screen/radar-screen.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {MaterialModule} from './utils/MaterialModule';
+import { ConfigurationBarComponent } from './components/configuration-bar/configuration-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RadarScreenComponent,
-    NavbarComponent
+    NavbarComponent,
+    ConfigurationBarComponent
   ],
   imports: [
     MaterialModule,
