@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {AirplaneRegisterComponent} from '../airplane-register/airplane-register.component';
 
 @Component({
   selector: 'app-configuration-bar',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigurationBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogService: MatDialog) {
+  }
 
   ngOnInit(): void {
+  }
+
+  openAirplaneRegister(): void {
+    const dialogRef = this.dialogService.open(AirplaneRegisterComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log('The dialogService was closed');
+    });
   }
 
 }

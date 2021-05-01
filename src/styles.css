@@ -2,4 +2,32 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Inter, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Inter, "Helvetica Neue", sans-serif; background-color: #F7F7F7}
+
+.mr-1 {
+  margin-right: 1%;
+}
+
+.mr-2 {
+  margin-right: 2%;
+}
+
+.mr-4 {
+  margin-right: 4%;
+}
+
+.ml-1 {
+  margin-left: 1%;
+}
+
+.ml-2 {
+  margin-left: 4%;
+}
+
+.ml-4 {
+  margin-left: 4%;
+}
+
+.title {
+  font-weight: 700!important;
+}

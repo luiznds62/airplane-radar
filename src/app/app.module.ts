@@ -8,13 +8,15 @@ import {RadarScreenComponent} from './screens/radar-screen/radar-screen.componen
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {MaterialModule} from './utils/MaterialModule';
 import { ConfigurationBarComponent } from './components/configuration-bar/configuration-bar.component';
+import { AirplaneRegisterComponent } from './components/airplane-register/airplane-register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RadarScreenComponent,
     NavbarComponent,
-    ConfigurationBarComponent
+    ConfigurationBarComponent,
+    AirplaneRegisterComponent
   ],
   imports: [
     MaterialModule,
