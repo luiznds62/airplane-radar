@@ -1,0 +1,25 @@
+.radar-container{
+  display: flex;
+  flex-direction: column;
+  padding-left: 2%;
+  padding-right: 2%;
+  height: calc(100% - 64px);
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .radar-container {
+    height: calc(100% - 64px);
+  }
+}
+
+@media (max-width: 767px) {
+  .radar-container {
+    height: calc(100% - 56px);
+  }
+}
+
+@media (max-width: 480px) {
+  .radar-container {
+    height: calc(100% - 56px);
+  }
+}
