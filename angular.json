@@ -28,7 +28,6 @@
               "src/assets"
             ],
             "styles": [
-              "src/app/themes/radar-app-theme.scss",
               "src/styles.css"
             ],
             "scripts": []

@@ -1,10 +1,117 @@
 <div class="configuration-bar-container">
-  <div class="configuration-bar-options">
-    <div class="configuration-bar-option">
-      <button mat-raised-button color="primary" (click)="openAirplaneRegister()">
-        <mat-icon>add</mat-icon>
-        Avião
-      </button>
+    <div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            Avião
+        </button>
+        <ul class="dropdown-menu">
+            <form>
+                <li>
+                    <app-airplane-register></app-airplane-register>
+                </li>
+            </form>
+        </ul>
     </div>
-  </div>
+    <div>
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <button
+                type="button"
+                class="btn btn-outline-primary"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+            >
+                Translandar
+            </button>
+            <ul class="dropdown-menu">
+                <form>
+                    <li>
+                        <app-airplane-translandar></app-airplane-translandar>
+                    </li>
+                </form>
+            </ul>
+            <button
+                type="button"
+                class="btn btn-outline-primary"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+            >
+                Escalonar
+            </button>
+            <ul class="dropdown-menu">
+                <form>
+                    <li>
+                        <app-airplane-escalonar></app-airplane-escalonar>
+                    </li>
+                </form>
+            </ul>
+            <button
+                type="button"
+                class="btn btn-outline-primary"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+            >
+                Rotacionar
+            </button>
+            <ul class="dropdown-menu">
+                <form>
+                    <li>
+                        <app-airplane-rotacionar></app-airplane-rotacionar>
+                    </li>
+                </form>
+            </ul>
+
+            <button
+                type="button"
+                class="btn btn-outline-primary"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+            >
+                Aviões próximos ao aeroporto
+            </button>
+            <ul class="dropdown-menu">
+                <form>
+                    <li>
+                        <app-airplane-proximos-aeroporto></app-airplane-proximos-aeroporto>
+                    </li>
+                </form>
+            </ul>
+
+            <button
+                type="button"
+                class="btn btn-outline-primary"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+            >
+                Aviões próximos
+            </button>
+            <ul class="dropdown-menu">
+                <form>
+                    <li>
+                        <app-airplane-avioes-proximos></app-airplane-avioes-proximos>
+                    </li>
+                </form>
+            </ul>
+            <button
+                type="button"
+                class="btn btn-outline-primary"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+            >
+                Em rota de colisão
+            </button>
+            <ul class="dropdown-menu">
+                <form>
+                    <li>
+                        <app-airplane-rota-colisao></app-airplane-rota-colisao>
+                    </li>
+                </form>
+            </ul>
+        </div>
+    </div>
 </div>
