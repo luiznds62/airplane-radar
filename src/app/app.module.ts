@@ -13,7 +13,8 @@ import { AirplaneEscalonarComponent } from './components/airplane-escalonar/airp
 import { AirplaneRotacionarComponent } from './components/airplane-rotacionar/airplane-rotacionar.component'
 import { AirplaneProximosAeroportoComponent } from './components/airplane-proximos-aeroporto/airplane-proximos-aeroporto.component'
 import { AirplaneRotaColisaoComponent } from './components/airplane-rota-colisao/airplane-rota-colisao.component'
-import { AirplaneAvioesProximosComponent } from './components/airplane-avioes-proximos/airplane-avioes-proximos.component'
+import { AirplaneAvioesProximosComponent } from './components/airplane-avioes-proximos/airplane-avioes-proximos.component';
+import { AirplaneGraficoComponent } from './components/airplane-grafico/airplane-grafico.component'
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import { AirplaneAvioesProximosComponent } from './components/airplane-avioes-pr
         AirplaneProximosAeroportoComponent,
         AirplaneRotaColisaoComponent,
         AirplaneAvioesProximosComponent,
+        AirplaneGraficoComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
     providers: [],
