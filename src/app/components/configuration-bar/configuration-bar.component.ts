@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core'
-import { ConfigurationBarOptions } from './configuration-bar-options'
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Airplane } from 'src/app/models/Airplane';
+import { ConfigurationBarOptions } from './configuration-bar-options';
 
 @Component({
     selector: 'app-configuration-bar',
@@ -7,8 +8,12 @@ import { ConfigurationBarOptions } from './configuration-bar-options'
     styleUrls: ['./configuration-bar.component.css'],
 })
 export class ConfigurationBarComponent implements OnInit {
-    OPTIONS = ConfigurationBarOptions
-    functionOptionSelected: String = ''
+    @ViewChild('buttonRegister') buttonRegister: ElementRef;
+    @Input() airplanes: Airplane[] = [];
+
+    showDropdown: boolean = true;
+    OPTIONS = ConfigurationBarOptions;
+    functionOptionSelected: String = '';
 
     constructor() {}
 
@@ -17,6 +22,10 @@ export class ConfigurationBarComponent implements OnInit {
     openAirplaneRegister(): void {}
 
     setOption(name: String) {
-        this.functionOptionSelected = name
+        this.functionOptionSelected = name;
+    }
+
+    closeRegister(event: any) {
+        this.buttonRegister.nativeElement.click();
     }
 }

@@ -1,4 +1,4 @@
 export class Square {
-    public width: string;
-    public height: string;
+  public width: string | undefined;
+  public height: string | undefined;
 }

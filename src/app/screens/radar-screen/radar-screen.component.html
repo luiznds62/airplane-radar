@@ -1,16 +1,15 @@
 <app-navbar></app-navbar>
-<div class="container-fluid">
-    <div class="card shadow" class="radar-container">
-        <div class="card-body">
-            <h5 class="card-title">Radar de aviões</h5>
-            <div style="margin-top: 1%">
-                <app-configuration-bar></app-configuration-bar>
+<div class="p-2 mt-3 h-5/6 bg-gray-100">
+    <div class="card shadow" class="bg-white">
+        <div class="card-body" style="height: 90vh">
+            <h5 class="card-title h4">Radar de aviões</h5>
+            <div class="mt-2">
+                <app-configuration-bar [airplanes]="airplanes"></app-configuration-bar>
             </div>
             <div class="row mt-5">
-                <div class="col-6">
-                    <app-airplane-grafico></app-airplane-grafico>
+                <div class="col">
+                    <app-airplane-grafico [airplanes]="airplanes"></app-airplane-grafico>
                 </div>
-                <div class="col-6">x</div>
             </div>
         </div>
     </div>

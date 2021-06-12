@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Airplane } from 'src/app/models/Airplane';
+import { Square } from '../../models/Square';
 
 @Component({
     selector: 'app-airplane-grafico',
@@ -7,38 +8,123 @@ import { Airplane } from 'src/app/models/Airplane';
     styleUrls: ['./airplane-grafico.component.css'],
 })
 export class AirplaneGraficoComponent implements OnInit {
-    SPRITE_SIZE: number = 10;
+    @ViewChild('radarContainer') radarContainer: ElementRef;
+    @ViewChild('middlePoint') middlePointElement: ElementRef;
+    @Input() airplanes: Airplane[] = [];
 
-    canvaId: string = 'airplaneCanvas';
-    context: any = undefined;
-    sprite: any = undefined;
-    airplanes: Airplane[] = [];
+    private SQUARE_SIZE: number = 50;
 
-    constructor() {}
+    public tableData: Array<Airplane> = [];
+    public radarSquares: Array<Square>;
+    public squareWidth: number;
+    public middlePointXPosition: number;
+    public middlePointYPosition: number;
+    private containerDimensions: any;
 
-    ngOnInit(): void {
-        this.sprite = this.getAirplaneSprite();
-        this.context = this.getCanva().getContext('2d');
-        this.setAirplaneInCanva(new Airplane(51, 51, 0, 0, 0, 0));
+    constructor(private changeDetector: ChangeDetectorRef) {}
+
+    ngOnInit(): void {}
+
+    ngAfterViewInit() {
+        this.loadSquares();
+
+        setTimeout(() => {
+            this.loadTableData();
+        }, 100);
+
+        window.addEventListener('resize', () => {
+            this.loadSquares().then(() => {
+                setTimeout(() => {
+                    this.loadTableData();
+                }, 100);
+            });
+        });
     }
 
-    getCanva(): any {
-        return document.getElementById(this.canvaId);
+    public plotAirplane(airplane: Airplane) {
+        let xTranlation = this.middlePointXPosition + this.squareWidth * airplane.x;
+        let yTranlation = this.middlePointYPosition + this.squareWidth * airplane.y * -1;
+
+        if (airplane.x > 0) {
+            xTranlation -= this.squareWidth * 0.7;
+        } else if (airplane.x < 0) {
+            xTranlation += this.squareWidth * 0.3;
+        } else {
+            xTranlation -= this.squareWidth * 0.2;
+        }
+
+        if (this.containerDimensions.width >= 1400) {
+            if (airplane.y > 0) {
+                yTranlation += this.squareWidth * (airplane.y < 4 ? 0.3 : 0.2);
+            } else if (airplane.y < 0) {
+                yTranlation -= this.squareWidth * (airplane.y > -4 ? 0.6 : 0.5);
+            } else {
+                yTranlation -= this.squareWidth * 0.15;
+            }
+        } else {
+            if (airplane.y > 0) {
+                yTranlation += this.squareWidth * 0.4;
+            } else if (airplane.y < 0) {
+                yTranlation -= this.squareWidth * 0.6;
+            } else {
+                yTranlation -= this.squareWidth * 0.15;
+            }
+        }
+
+        airplane.translation = `translate(${xTranlation + 'px'}, ${yTranlation + 'px'}) rotate(${this.getAirplaneDirection(airplane) + 'deg'})`;
     }
 
-    getAirplaneSprite() {
-        const image = new Image();
-        image.className = 'sprite';
-        image.src = 'assets/aeroplane.png';
-        return image;
+    public loadTableData() {
+        this.loadSquares().then(() => {
+            setTimeout(() => {
+                this.airplanes.forEach((airplane) => {
+                    this.plotAirplane(airplane);
+                });
+            }, 100);
+
+            this.changeDetector.detectChanges();
+        });
     }
 
-    setAirplaneInCanva(airplane: Airplane) {
-        const image = this.getAirplaneSprite();
-        image.onload = () => {
-            this.context.imageSmoothingEnabled = false;
-            this.context.drawImage(image, airplane.x, airplane.y, this.SPRITE_SIZE, this.SPRITE_SIZE);
-        };
-        //this.context.drawImage(this.sprite, airplane.x, airplane.y, this.SPRITE_SIZE, this.SPRITE_SIZE);
+    private loadSquares() {
+        return new Promise<void>((resolve) => {
+            setTimeout(() => {
+                this.containerDimensions = this.radarContainer.nativeElement.getBoundingClientRect();
+
+                this.squareWidth = this.containerDimensions.width / this.SQUARE_SIZE;
+                const squareCount = Math.round(this.containerDimensions.height / this.squareWidth) * this.SQUARE_SIZE;
+
+                this.radarSquares = new Array();
+
+                for (let i = 0; i < squareCount; i++) {
+                    let square = new Square();
+                    square.height = this.squareWidth + 'px';
+                    square.width = this.squareWidth + 'px';
+                    this.radarSquares.push(square);
+                }
+
+                this.middlePointXPosition = this.containerDimensions.width / 2 - this.middlePointElement.nativeElement.offsetWidth / 2;
+                this.middlePointYPosition = this.containerDimensions.height / 2 - this.middlePointElement.nativeElement.offsetHeight / 2;
+
+                this.changeDetector.detectChanges();
+                resolve();
+            }, 100);
+        });
+    }
+
+    private getAirplaneDirection(airplane: Airplane) {
+        if (airplane.direction) {
+            return parseInt(airplane.direction.toString()) * -1 + 45;
+        }
+
+        return 45;
+    }
+
+    public getTextRotation(airplane: Airplane) {
+        if (airplane.direction) {
+            return `rotate(${airplane.direction}deg)`;
+        }
+
+        return 'rotate(-45deg)';
     }
 }

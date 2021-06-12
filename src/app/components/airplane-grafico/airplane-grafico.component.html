@@ -1,1 +1,32 @@
-<canvas id="airplaneCanvas" class="airplane-canva"> Your browser does not support the canvas element. </canvas>
+<div>
+    <div class="w-1/2 relative overflow-hidden" style="height: 600px" #radarContainer>
+        <div class="flex flex-wrap top-0" style="height: 600px">
+            <ng-container *ngFor="let square of radarSquares">
+                <div class="border" [ngStyle]="{ height: square.height, width: square.width }"></div>
+            </ng-container>
+        </div>
+
+        <div class="absolute top-0 w-full" style="height: 600px">
+            <div class="flex justify-center relative h-full">
+                <div class="absolute h-2 w-2 z-10 rounded-full bg-gray-400 self-center" #middlePoint></div>
+
+                <div class="absolute h-full bg-gray-500" style="width: 1px"></div>
+                <div class="absolute w-full bg-gray-500 self-center" style="height: 1px"></div>
+            </div>
+        </div>
+
+        <!--  <ng-container *ngFor="let airplane of tableData">-->
+        <!--    <ng-container *ngIf="airplane.translation">-->
+        <!--      <div class="block absolute top-0 text-gray-600 text-xl" [ngStyle]="{ 'transform': airplane.translation }">-->
+        <!--        <div class="relative flex flex-col">-->
+        <!--                    <span class="text-xs font-semibold absolute top-0 -mt-4 self-center"-->
+        <!--                          [ngStyle]="{ 'transform': getTextRotation(airplane) }">-->
+        <!--                        {{ airplane.id }}-->
+        <!--                    </span>-->
+        <!--          <ngt-svg src='assets/images/icons/airplane.svg'></ngt-svg>-->
+        <!--        </div>-->
+        <!--      </div>-->
+        <!--    </ng-container>-->
+        <!--  </ng-container>-->
+    </div>
+</div>

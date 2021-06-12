@@ -1,17 +1,10 @@
 export class Airplane {
-    x: number
-    y: number
-    raio: number
-    angulo: number
-    velocidade: number
-    direcao: number
-
-    constructor(x: number, y: number, raio: number, angulo: number, velocidade: number, direcao: number) {
-        this.x = x
-        this.y = x
-        this.raio = raio
-        this.angulo = angulo
-        this.velocidade = velocidade
-        this.direcao = direcao
-    }
+    public id: any;
+    public x: any;
+    public y: any;
+    public radius: any;
+    public angle: any;
+    public speed: any;
+    public direction: any;
+    public translation: any;
 }
