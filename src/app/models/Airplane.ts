@@ -7,4 +7,5 @@ export class Airplane {
     public speed: any;
     public direction: any;
     public translation: any;
+    public selected: boolean;
 }

@@ -34,13 +34,11 @@ export class AirplaneRegisterComponent implements OnInit {
         airplane.id = this.getId();
         airplane.x = this.x;
         airplane.y = this.y;
-        airplane.angle = this.angle;
-        airplane.speed = this.speed;
-        airplane.translation = this.translation;
-        airplane.radius = this.radius;
-        airplane.direction = this.direction;
+        airplane.angle = this.angle || 0;
+        airplane.speed = this.speed || 0;
+        airplane.translation = this.translation || 0;
+        airplane.radius = this.radius || 0;
+        airplane.direction = this.direction || 0;
         this.airplanes.push(airplane);
-
-        //this.onCloseDropdown.emit(false);
     }
 }

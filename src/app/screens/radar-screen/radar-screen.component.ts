@@ -21,18 +21,12 @@ export class RadarScreenComponent implements OnInit {
             direction: 0,
             speed: 0,
             translation: 0,
+            selected: false,
         };
         this.airplanes.push(airplane);
-        this.airplanes.push(airplane);
-        this.airplanes.push(airplane);
-        this.airplanes.push(airplane);
-        this.airplanes.push(airplane);
-        this.airplanes.push(airplane);
-        this.airplanes.push(airplane);
-        this.airplanes.push(airplane);
-        this.airplanes.push(airplane);
-        this.airplanes.push(airplane);
-        this.airplanes.push(airplane);
-        this.airplanes.push(airplane);
+    }
+
+    remove(airplane: Airplane) {
+        this.airplanes = this.airplanes.filter((x: Airplane) => x.id !== airplane.id);
     }
 }

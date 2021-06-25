@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Airplane } from 'src/app/models/Airplane';
 
 @Component({
@@ -8,6 +8,7 @@ import { Airplane } from 'src/app/models/Airplane';
 })
 export class AirplaneListComponent implements OnInit {
     @Input() airplanes: Airplane[] = [];
+    @Output() removeAirplane = new EventEmitter();
 
     currentPage = 0;
 
@@ -16,4 +17,8 @@ export class AirplaneListComponent implements OnInit {
     ngOnInit(): void {}
 
     pageChanged(event: any) {}
+
+    remove(airplane: Airplane) {
+        this.removeAirplane.emit(airplane);
+    }
 }

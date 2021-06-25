@@ -11,7 +11,7 @@
                     <app-airplane-grafico [airplanes]="airplanes"></app-airplane-grafico>
                 </div>
                 <div class="col">
-                    <app-airplane-list [airplanes]="airplanes"></app-airplane-list>
+                    <app-airplane-list [airplanes]="airplanes" (removeAirplane)="remove($event)"></app-airplane-list>
                 </div>
             </div>
         </div>
