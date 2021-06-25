@@ -2,13 +2,13 @@
     <thead>
         <tr>
             <th scope="col" width="10%"></th>
-            <th scope="col">Id</th>
-            <th scope="col">X</th>
-            <th scope="col">Y</th>
-            <th scope="col">Raio</th>
-            <th scope="col">Ângulo</th>
-            <th scope="col">Velocidade</th>
-            <th scope="col">Direção</th>
+            <th scope="col" width="12%">Id</th>
+            <th scope="col" width="12%">X</th>
+            <th scope="col" width="12%">Y</th>
+            <th scope="col" width="12%">R</th>
+            <th scope="col" width="12%">A</th>
+            <th scope="col" width="10%">V</th>
+            <th scope="col" width="10%">D</th>
             <th scope="col" width="10%"></th>
         </tr>
     </thead>
@@ -16,12 +16,12 @@
         <tr *ngFor="let i = index; let airplane; of: airplanes | paginate: { itemsPerPage: 10, currentPage: currentPage, totalItems: airplanes.length }">
             <th><input class="form-check-input" type="checkbox" value="airplane.selected" /></th>
             <th scope="row">{{ i + 1 }}</th>
-            <td>{{ airplane.x }}</td>
-            <td>{{ airplane.y }}</td>
-            <td>{{ airplane.radius }}</td>
-            <td>{{ airplane.angle }}</td>
-            <td>{{ airplane.speed }}</td>
-            <td>{{ airplane.direction }}</td>
+            <td>{{ airplane.x | number: '1.2-2' }}</td>
+            <td>{{ airplane.y | number: '1.2-2' }}</td>
+            <td>{{ airplane.radius | number: '1.2-2' }}</td>
+            <td>{{ airplane.angle | number: '1.2-2' }}</td>
+            <td>{{ airplane.speed | number: '1.2-2' }}</td>
+            <td>{{ airplane.direction | number: '1.2-2' }}</td>
             <td (click)="remove(airplane)">
                 <a style="color: #646464" role="button"><i class="fa fa-trash"></i></a>
             </td>

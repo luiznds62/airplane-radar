@@ -1,12 +1,12 @@
 <div>
-    <div class="relative overflow-hidden" style="height: 600px" #radarContainer>
-        <div class="flex flex-wrap top-0" style="height: 600px">
+    <div class="relative overflow-hidden" style="height: 400px" #radarContainer>
+        <div class="flex flex-wrap top-0" style="height: 400px">
             <ng-container *ngFor="let square of radarSquares">
                 <div class="border" [ngStyle]="{ height: square.height, width: square.width }"></div>
             </ng-container>
         </div>
 
-        <div class="absolute top-0 w-full" style="height: 600px">
+        <div class="absolute top-0 w-full" style="height: 400px">
             <div class="flex justify-center relative h-full">
                 <div class="absolute h-2 w-2 z-10 rounded-full bg-gray-400 self-center" #middlePoint></div>
 

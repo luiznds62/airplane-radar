@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="p-2 mt-3 h-5/6 bg-gray-100">
+<div class="p-2 mt-1 h-5/6 bg-gray-100">
     <div class="card shadow" class="bg-white">
         <div class="card-body" style="height: 90vh">
             <h5 class="card-title h4">Radar de aviões</h5>
@@ -7,10 +7,10 @@
                 <app-configuration-bar [airplanes]="airplanes"></app-configuration-bar>
             </div>
             <div class="row mt-5">
-                <div class="col">
+                <div class="col-6">
                     <app-airplane-grafico [airplanes]="airplanes"></app-airplane-grafico>
                 </div>
-                <div class="col">
+                <div class="col-6">
                     <app-airplane-list [airplanes]="airplanes" (removeAirplane)="remove($event)"></app-airplane-list>
                 </div>
             </div>
