@@ -10,14 +10,14 @@ export class AirplaneRegisterComponent implements OnInit {
     @Input() airplanes: Airplane[] = [];
     @Output() onCloseDropdown = new EventEmitter<boolean>();
 
-    id = null;
-    x = null;
-    y = null;
-    angle = null;
-    speed = null;
-    direction = null;
-    radius = null;
-    translation = null;
+    id = '';
+    x = '';
+    y = '';
+    angle = '';
+    speed = '';
+    direction = '';
+    radius = '';
+    translation = '';
 
     constructor() {}
 
@@ -32,8 +32,8 @@ export class AirplaneRegisterComponent implements OnInit {
     add() {
         let airplane: Airplane = new Airplane();
         airplane.id = this.getId();
-        airplane.x = this.x;
-        airplane.y = this.y;
+        airplane.x = this.x || 0;
+        airplane.y = this.y || 0;
         airplane.angle = this.angle || 0;
         airplane.speed = this.speed || 0;
         airplane.translation = this.translation || 0;

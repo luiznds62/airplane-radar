@@ -5,25 +5,25 @@
             <div class="col-3">
                 <div class="mb-3">
                     <label for="input1" class="form-label">X</label>
-                    <input [(ngModel)]="x" name="x" type="number" class="form-control" id="input1" required min="0" />
+                    <input [(ngModel)]="x" name="x" type="number" class="form-control" id="input1" required min="0" [disabled]="radius !== '' || angle !== ''" />
                 </div>
             </div>
             <div class="col-3">
                 <div class="mb-3">
                     <label for="input2" class="form-label">Y</label>
-                    <input [(ngModel)]="y" name="y" type="number" class="form-control" id="input2" required min="0" />
+                    <input [(ngModel)]="y" name="y" type="number" class="form-control" id="input2" required min="0" [disabled]="radius !== '' || angle !== ''" />
                 </div>
             </div>
             <div class="col-3">
                 <div class="mb-3">
                     <label for="input3" class="form-label">Raio</label>
-                    <input [(ngModel)]="radius" name="radius" type="number" class="form-control" id="input3" required min="0" />
+                    <input [(ngModel)]="radius" name="radius" type="number" class="form-control" id="input3" required min="0" [disabled]="x !== '' || y !== ''" />
                 </div>
             </div>
             <div class="col-3">
                 <div class="mb-3">
                     <label for="input4" class="form-label">Ângulo</label>
-                    <input [(ngModel)]="angle" name="angle" type="number" class="form-control" id="input4" required min="0" />
+                    <input [(ngModel)]="angle" name="angle" type="number" class="form-control" id="input4" required min="0" [disabled]="x !== '' || y !== ''" />
                 </div>
             </div>
         </div>

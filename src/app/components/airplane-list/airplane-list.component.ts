@@ -19,6 +19,6 @@ export class AirplaneListComponent implements OnInit {
     pageChanged(event: any) {}
 
     remove(airplane: Airplane) {
-        this.removeAirplane.emit(airplane);
+        setTimeout(() => this.removeAirplane.emit(airplane), 100);
     }
 }
