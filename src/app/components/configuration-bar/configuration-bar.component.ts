@@ -17,7 +17,12 @@ export class ConfigurationBarComponent implements OnInit {
 
     constructor() {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        let button: any = document.querySelector('.dropdown');
+        button.click((e: any) => {
+            e.stopPropagation();
+        });
+    }
 
     openAirplaneRegister(): void {}
 

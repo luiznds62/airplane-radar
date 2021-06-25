@@ -1,10 +1,7 @@
 <div class="configuration-bar-container">
-    <div>
-        <button #buttonRegister type="button" class="btn btn-primary" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-            <i class="fa fa-plus" aria-hidden="true"></i>
-            Avião
-        </button>
-        <ul class="dropdown-menu">
+    <div id="registerDropdown" class="dropdown">
+        <button class="btn btn-primary" role="button" data-mdb-toggle="dropdown" data-mdb-auto-close="outside" aria-expanded="false"><i class="fa fa-plus me-2"></i>Avião</button>
+        <ul class="dropdown-menu" style="width: 400px">
             <form>
                 <li>
                     <app-airplane-register [airplanes]="airplanes" (onCloseDropdown)="closeRegister($event)"></app-airplane-register>
@@ -13,57 +10,63 @@
         </ul>
     </div>
     <div>
-        <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Translandar</button>
-            <ul class="dropdown-menu">
-                <form>
-                    <li>
-                        <app-airplane-translandar [airplanes]="airplanes"></app-airplane-translandar>
-                    </li>
-                </form>
-            </ul>
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Escalonar</button>
-            <ul class="dropdown-menu">
-                <form>
-                    <li>
-                        <app-airplane-escalonar [airplanes]="airplanes"></app-airplane-escalonar>
-                    </li>
-                </form>
-            </ul>
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Rotacionar</button>
-            <ul class="dropdown-menu">
-                <form>
-                    <li>
-                        <app-airplane-rotacionar [airplanes]="airplanes"></app-airplane-rotacionar>
-                    </li>
-                </form>
-            </ul>
-
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Aviões próximos ao aeroporto</button>
-            <ul class="dropdown-menu">
-                <form>
-                    <li>
-                        <app-airplane-proximos-aeroporto [airplanes]="airplanes"></app-airplane-proximos-aeroporto>
-                    </li>
-                </form>
-            </ul>
-
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Aviões próximos</button>
-            <ul class="dropdown-menu">
-                <form>
-                    <li>
-                        <app-airplane-avioes-proximos [airplanes]="airplanes"></app-airplane-avioes-proximos>
-                    </li>
-                </form>
-            </ul>
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Em rota de colisão</button>
-            <ul class="dropdown-menu">
-                <form>
-                    <li>
-                        <app-airplane-rota-colisao [airplanes]="airplanes"></app-airplane-rota-colisao>
-                    </li>
-                </form>
-            </ul>
+        <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group me-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Relatório</button>
+                <ul class="dropdown-menu">
+                    <form>
+                        <li>Relatório</li>
+                    </form>
+                </ul>
+                <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Translandar</button>
+                <ul class="dropdown-menu">
+                    <form>
+                        <li>
+                            <app-airplane-translandar [airplanes]="airplanes"></app-airplane-translandar>
+                        </li>
+                    </form>
+                </ul>
+                <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Escalonar</button>
+                <ul class="dropdown-menu">
+                    <form>
+                        <li>
+                            <app-airplane-escalonar [airplanes]="airplanes"></app-airplane-escalonar>
+                        </li>
+                    </form>
+                </ul>
+                <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Rotacionar</button>
+                <ul class="dropdown-menu">
+                    <form>
+                        <li>
+                            <app-airplane-rotacionar [airplanes]="airplanes"></app-airplane-rotacionar>
+                        </li>
+                    </form>
+                </ul>
+                <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Aviões próximos ao aeroporto</button>
+                <ul class="dropdown-menu">
+                    <form>
+                        <li>
+                            <app-airplane-proximos-aeroporto [airplanes]="airplanes"></app-airplane-proximos-aeroporto>
+                        </li>
+                    </form>
+                </ul>
+                <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Aviões próximos</button>
+                <ul class="dropdown-menu">
+                    <form>
+                        <li>
+                            <app-airplane-avioes-proximos [airplanes]="airplanes"></app-airplane-avioes-proximos>
+                        </li>
+                    </form>
+                </ul>
+                <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Em rota de colisão</button>
+                <ul class="dropdown-menu">
+                    <form>
+                        <li>
+                            <app-airplane-rota-colisao [airplanes]="airplanes"></app-airplane-rota-colisao>
+                        </li>
+                    </form>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

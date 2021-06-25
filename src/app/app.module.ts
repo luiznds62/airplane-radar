@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { RadarScreenComponent } from './screens/radar-screen/radar-screen.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ConfigurationBarComponent } from './components/configuration-bar/configuration-bar.component';
@@ -15,7 +17,7 @@ import { AirplaneProximosAeroportoComponent } from './components/airplane-proxim
 import { AirplaneRotaColisaoComponent } from './components/airplane-rota-colisao/airplane-rota-colisao.component';
 import { AirplaneAvioesProximosComponent } from './components/airplane-avioes-proximos/airplane-avioes-proximos.component';
 import { AirplaneGraficoComponent } from './components/airplane-grafico/airplane-grafico.component';
-import { FormsModule } from '@angular/forms';
+import { AirplaneListComponent } from './components/airplane-list/airplane-list.component';
 
 @NgModule({
     declarations: [
@@ -31,8 +33,9 @@ import { FormsModule } from '@angular/forms';
         AirplaneRotaColisaoComponent,
         AirplaneAvioesProximosComponent,
         AirplaneGraficoComponent,
+        AirplaneListComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, FormsModule, BrowserAnimationsModule],
+    imports: [BrowserModule, AppRoutingModule, FormsModule, BrowserAnimationsModule, NgxPaginationModule],
     providers: [],
     bootstrap: [AppComponent],
 })

@@ -11,5 +11,28 @@ export class RadarScreenComponent implements OnInit {
 
     constructor() {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        const airplane: Airplane = {
+            id: 1,
+            x: 1,
+            y: 1,
+            radius: 0,
+            angle: 0,
+            direction: 0,
+            speed: 0,
+            translation: 0,
+        };
+        this.airplanes.push(airplane);
+        this.airplanes.push(airplane);
+        this.airplanes.push(airplane);
+        this.airplanes.push(airplane);
+        this.airplanes.push(airplane);
+        this.airplanes.push(airplane);
+        this.airplanes.push(airplane);
+        this.airplanes.push(airplane);
+        this.airplanes.push(airplane);
+        this.airplanes.push(airplane);
+        this.airplanes.push(airplane);
+        this.airplanes.push(airplane);
+    }
 }
