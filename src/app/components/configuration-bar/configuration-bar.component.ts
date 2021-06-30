@@ -1,36 +1,43 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Airplane } from 'src/app/models/Airplane';
-import { ConfigurationBarOptions } from './configuration-bar-options';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Airplane} from 'src/app/models/Airplane';
+import {ConfigurationBarOptions} from './configuration-bar-options';
 
 @Component({
-    selector: 'app-configuration-bar',
-    templateUrl: './configuration-bar.component.html',
-    styleUrls: ['./configuration-bar.component.css'],
+  selector: 'app-configuration-bar',
+  templateUrl: './configuration-bar.component.html',
+  styleUrls: ['./configuration-bar.component.css'],
 })
 export class ConfigurationBarComponent implements OnInit {
-    @ViewChild('buttonRegister') buttonRegister: ElementRef;
-    @Input() airplanes: Airplane[] = [];
+  @ViewChild('buttonRegister') buttonRegister: ElementRef;
+  @Output() addAirplane = new EventEmitter();
+  @Input() airplanes: Airplane[] = [];
 
-    showDropdown: boolean = true;
-    OPTIONS = ConfigurationBarOptions;
-    functionOptionSelected: String = '';
+  showDropdown = true;
+  OPTIONS = ConfigurationBarOptions;
+  functionOptionSelected = '';
 
-    constructor() {}
+  constructor() {
+  }
 
-    ngOnInit(): void {
-        let button: any = document.querySelector('.dropdown');
-        button.click((e: any) => {
-            e.stopPropagation();
-        });
-    }
+  ngOnInit(): void {
+    const button: any = document.querySelector('.dropdown');
+    button.click((e: any) => {
+      e.stopPropagation();
+    });
+  }
 
-    openAirplaneRegister(): void {}
+  openAirplaneRegister(): void {
+  }
 
-    setOption(name: String) {
-        this.functionOptionSelected = name;
-    }
+  setOption(name: string) {
+    this.functionOptionSelected = name;
+  }
 
-    closeRegister(event: any) {
-        this.buttonRegister.nativeElement.click();
-    }
+  closeRegister(event: any) {
+    this.buttonRegister.nativeElement.click();
+  }
+
+  new(airplane: Airplane) {
+    this.addAirplane.emit(airplane);
+  }
 }

@@ -4,11 +4,11 @@
         <div class="card-body" style="height: 90vh">
             <h5 class="card-title h4">Radar de aviões</h5>
             <div class="mt-2">
-                <app-configuration-bar [airplanes]="airplanes"></app-configuration-bar>
+                <app-configuration-bar [airplanes]="airplanes" (addAirplane)="add($event)"></app-configuration-bar>
             </div>
             <div class="row mt-5">
                 <div class="col-6">
-                    <app-airplane-grafico [airplanes]="airplanes"></app-airplane-grafico>
+                    <app-airplane-grafico [airplanes]="airplanes" #airplanegrafico></app-airplane-grafico>
                 </div>
                 <div class="col-6">
                     <app-airplane-list [airplanes]="airplanes" (removeAirplane)="remove($event)"></app-airplane-list>

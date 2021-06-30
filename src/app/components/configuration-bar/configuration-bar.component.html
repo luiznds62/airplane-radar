@@ -4,7 +4,7 @@
         <ul class="dropdown-menu" style="width: 400px">
             <form>
                 <li>
-                    <app-airplane-register [airplanes]="airplanes" (onCloseDropdown)="closeRegister($event)"></app-airplane-register>
+                    <app-airplane-register [airplanes]="airplanes" (newAirplane)="new($event)"></app-airplane-register>
                 </li>
             </form>
         </ul>
