@@ -14,7 +14,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let i = index; let airplane; of: airplanes | paginate: { itemsPerPage: 10, currentPage: currentPage, totalItems: airplanes.length }">
-            <th><input class="form-check-input" type="checkbox" value="airplane.selected" /></th>
+            <th><input class="form-check-input" type="checkbox" [checked]="airplane.selected" (change)="airplane.selected = !airplane.selected"/></th>
             <th scope="row">{{ i + 1 }}</th>
             <td>{{ airplane.x | number: '1.2-2' }}</td>
             <td>{{ airplane.y | number: '1.2-2' }}</td>

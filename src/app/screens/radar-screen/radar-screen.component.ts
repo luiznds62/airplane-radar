@@ -30,6 +30,11 @@ export class RadarScreenComponent implements OnInit {
     this.airplanes.push(airplane);
   }
 
+  setCollection(airplanes: Airplane[]) {
+    this.airplanes = airplanes;
+    this.updateChild();
+  }
+
   add(airplane: Airplane) {
     this.airplanes.push(airplane);
     this.updateChild();

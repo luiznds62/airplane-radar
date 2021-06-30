@@ -1,9 +1,3 @@
-.airplane-canva {
-  border: 1px solid #d3d3d3;
-  width: 900px;
-  height: 600px;
-}
-
-.sprite {
-  color: red;
+.airplane-selected {
+  filter: invert(80%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
 }

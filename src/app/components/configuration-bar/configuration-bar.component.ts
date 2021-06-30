@@ -10,6 +10,7 @@ import {ConfigurationBarOptions} from './configuration-bar-options';
 export class ConfigurationBarComponent implements OnInit {
   @ViewChild('buttonRegister') buttonRegister: ElementRef;
   @Output() addAirplane = new EventEmitter();
+  @Output() setCollection = new EventEmitter();
   @Input() airplanes: Airplane[] = [];
 
   showDropdown = true;
@@ -39,5 +40,9 @@ export class ConfigurationBarComponent implements OnInit {
 
   new(airplane: Airplane) {
     this.addAirplane.emit(airplane);
+  }
+
+  changeCollection(airplanes: Airplane[]) {
+    this.setCollection.emit(airplanes);
   }
 }

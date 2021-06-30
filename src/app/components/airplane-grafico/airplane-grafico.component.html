@@ -21,7 +21,7 @@
           <div class="relative flex flex-col">
             <span class="text-xs font-semibold absolute top-0 -mt-4 self-center"
                   [ngStyle]="{ 'transform': getTextRotation(airplane) }">{{ airplane.id }}</span>
-            <img src="assets/airplane.svg" width="24" height="24"/>
+            <img [ngClass]="{'airplane-selected': airplane.selected}" src="assets/airplane.svg" width="24" height="24"/>
           </div>
         </div>
       </div>
