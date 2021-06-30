@@ -12,10 +12,15 @@
     <div>
         <div class="btn-toolbar" role="toolbar">
             <div class="btn-group me-2" role="group" aria-label="First group">
-                <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Relatório</button>
+                <button type="button" class="btn btn-primary" (click)="showReportNotification = false;" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                  <span>Relatório</span>
+                  <span *ngIf="showReportNotification" class="badge bg-danger ms-2">1</span>
+                </button>
                 <ul class="dropdown-menu">
                     <form>
-                        <li>Relatório</li>
+                        <li class="p-2">
+                          <div [innerHTML]="reportMessage"></div>
+                        </li>
                     </form>
                 </ul>
                 <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Translandar</button>
@@ -46,7 +51,7 @@
                 <ul class="dropdown-menu">
                     <form>
                         <li>
-                            <app-airplane-proximos-aeroporto [airplanes]="airplanes"></app-airplane-proximos-aeroporto>
+                            <app-airplane-proximos-aeroporto [airplanes]="airplanes" (changeReport)="changeReport($event)"></app-airplane-proximos-aeroporto>
                         </li>
                     </form>
                 </ul>

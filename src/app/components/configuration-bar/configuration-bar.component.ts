@@ -13,9 +13,9 @@ export class ConfigurationBarComponent implements OnInit {
   @Output() setCollection = new EventEmitter();
   @Input() airplanes: Airplane[] = [];
 
-  showDropdown = true;
-  OPTIONS = ConfigurationBarOptions;
   functionOptionSelected = '';
+  reportMessage = 'Nenhuma informação a exibir';
+  showReportNotification = false;
 
   constructor() {
   }
@@ -44,5 +44,10 @@ export class ConfigurationBarComponent implements OnInit {
 
   changeCollection(airplanes: Airplane[]) {
     this.setCollection.emit(airplanes);
+  }
+
+  changeReport(message: string) {
+    this.reportMessage = message;
+    this.showReportNotification = true;
   }
 }
