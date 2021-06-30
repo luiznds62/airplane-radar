@@ -5,12 +5,12 @@
             <div class="col">
                 <div class="mb-3">
                     <label for="input1" class="form-label">Tempo mínimo</label>
-                    <input type="number" class="form-control" id="input1" required />
+                    <input [(ngModel)]="minTime" name="minTime" type="number" type="number" type="number" class="form-control" id="input1" required />
                 </div>
             </div>
         </div>
         <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Aplicar</button>
+            <button type="submit" class="btn btn-primary" (click)="checkCollision()">Aplicar</button>
         </div>
     </form>
 </div>
