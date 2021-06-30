@@ -25,7 +25,7 @@ export class AirplaneProximosAeroportoComponent implements OnInit {
     }
   }
 
-  checkNearbyAirplanes() {
+  getNearbyAirport() {
     this.validate();
     let hasToLog = false;
     let report = `<p><strong>Aviões com distancia minima de ${this.minDistance}Km com o aeroporto: </strong></p>`;
@@ -43,7 +43,7 @@ export class AirplaneProximosAeroportoComponent implements OnInit {
     });
 
     if (!hasToLog) {
-      report = report + (`Nenhum avião com uma distancia de ${this.minDistance}KM foi encontrado proximo ao aeroporto!`);
+      report = report + (`Nenhum avião com a distância informada foi encontrado próximo ao aeroporto`);
     }
 
     this.changeReport.emit(report);

@@ -1,14 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Airplane } from 'src/app/models/Airplane';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Airplane} from 'src/app/models/Airplane';
 
 @Component({
-    selector: 'app-airplane-rota-colisao',
-    templateUrl: './airplane-rota-colisao.component.html',
-    styleUrls: ['./airplane-rota-colisao.component.css'],
+  selector: 'app-airplane-rota-colisao',
+  templateUrl: './airplane-rota-colisao.component.html',
+  styleUrls: ['./airplane-rota-colisao.component.css'],
 })
 export class AirplaneRotaColisaoComponent implements OnInit {
-    @Input() airplanes: Airplane[] = [];
-    constructor() {}
+  @Input() airplanes: Airplane[] = [];
+  @Output() changeReport = new EventEmitter();
 
-    ngOnInit(): void {}
+  constructor() {
+  }
+
+  ngOnInit(): void {
+  }
 }

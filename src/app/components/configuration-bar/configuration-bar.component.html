@@ -14,7 +14,7 @@
             <div class="btn-group me-2" role="group" aria-label="First group">
                 <button type="button" class="btn btn-primary" (click)="showReportNotification = false;" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                   <span>Relatório</span>
-                  <span *ngIf="showReportNotification" class="badge bg-danger ms-2">1</span>
+                  <span *ngIf="showReportNotification" class="badge bg-danger ms-2">!</span>
                 </button>
                 <ul class="dropdown-menu">
                     <form>
@@ -59,7 +59,7 @@
                 <ul class="dropdown-menu">
                     <form>
                         <li>
-                            <app-airplane-avioes-proximos [airplanes]="airplanes"></app-airplane-avioes-proximos>
+                            <app-airplane-avioes-proximos [airplanes]="airplanes" (changeReport)="changeReport($event)"></app-airplane-avioes-proximos>
                         </li>
                     </form>
                 </ul>
@@ -67,7 +67,7 @@
                 <ul class="dropdown-menu">
                     <form>
                         <li>
-                            <app-airplane-rota-colisao [airplanes]="airplanes"></app-airplane-rota-colisao>
+                            <app-airplane-rota-colisao [airplanes]="airplanes" (changeReport)="changeReport($event)"></app-airplane-rota-colisao>
                         </li>
                     </form>
                 </ul>
