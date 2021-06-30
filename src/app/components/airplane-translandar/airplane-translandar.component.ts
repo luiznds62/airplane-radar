@@ -46,6 +46,12 @@ export class AirplaneTranslandarComponent implements OnInit {
       }
     });
 
+    this.clear();
     this.changeCollection.emit(this.airplanes);
+  }
+
+  clear() {
+    this.x = '';
+    this.y = '';
   }
 }
