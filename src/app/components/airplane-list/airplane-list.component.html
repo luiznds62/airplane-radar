@@ -1,15 +1,15 @@
-<table class="table table-striped table-hover">
+<table class="table table-bordered table-striped table-hover">
     <thead>
         <tr>
-            <th scope="col" width="10%"></th>
-            <th scope="col" width="12%">Id</th>
+            <th scope="col" width="5%"></th>
+            <th scope="col" width="5%">ID</th>
             <th scope="col" width="12%">X</th>
             <th scope="col" width="12%">Y</th>
             <th scope="col" width="12%">R</th>
             <th scope="col" width="12%">A</th>
-            <th scope="col" width="10%">V</th>
-            <th scope="col" width="10%">D</th>
-            <th scope="col" width="10%"></th>
+            <th scope="col" width="12%">V</th>
+            <th scope="col" width="12%">D</th>
+            <th scope="col" width="5%"></th>
         </tr>
     </thead>
     <tbody>
@@ -22,8 +22,8 @@
             <td>{{ airplane.angle | number: '1.2-2' }}</td>
             <td>{{ airplane.speed | number: '1.2-2' }}</td>
             <td>{{ airplane.direction | number: '1.2-2' }}</td>
-            <td (click)="remove(airplane)">
-                <a style="color: #646464" role="button"><i class="fa fa-trash"></i></a>
+            <td class="text-center">
+                <a style="color: #646464" role="button" (click)="remove(airplane)"><i class="fa fa-trash"></i></a>
             </td>
         </tr>
     </tbody>
