@@ -38,7 +38,7 @@
                 <ul class="dropdown-menu">
                     <form>
                         <li>
-                            <app-airplane-rotacionar [airplanes]="airplanes"></app-airplane-rotacionar>
+                            <app-airplane-rotacionar [airplanes]="airplanes" (changeCollection)="changeCollection($event)"></app-airplane-rotacionar>
                         </li>
                     </form>
                 </ul>
