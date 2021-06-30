@@ -1,22 +1,22 @@
 <div class="container airplane-escalonar-container">
-    <form class="needs-validation" style="margin-bottom: 0px">
-        <span class="h5">Escalonar</span>
-        <div class="row">
-            <div class="col">
-                <div class="mb-3">
-                    <label for="input1" class="form-label">X</label>
-                    <input type="number" class="form-control" id="input1" required />
-                </div>
-            </div>
-            <div class="col">
-                <div class="mb-3">
-                    <label for="input2" class="form-label">Y</label>
-                    <input type="number" class="form-control" id="input2" required />
-                </div>
-            </div>
+  <form class="needs-validation" style="margin-bottom: 0px">
+    <span class="h5">Escalonar</span>
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="input1" class="form-label">X</label>
+          <input [(ngModel)]="x" name="x" type="number" class="form-control" id="input1" required/>
         </div>
-        <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Aplicar</button>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="input2" class="form-label">Y</label>
+          <input [(ngModel)]="y" name="y" type="number" class="form-control" id="input2" required/>
         </div>
-    </form>
+      </div>
+    </div>
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary" (click)="escalonar()">Aplicar</button>
+    </div>
+  </form>
 </div>

@@ -30,7 +30,7 @@
                 <ul class="dropdown-menu">
                     <form>
                         <li>
-                            <app-airplane-escalonar [airplanes]="airplanes"></app-airplane-escalonar>
+                            <app-airplane-escalonar [airplanes]="airplanes" (changeCollection)="changeCollection($event)"></app-airplane-escalonar>
                         </li>
                     </form>
                 </ul>
