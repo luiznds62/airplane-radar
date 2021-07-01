@@ -31,7 +31,7 @@ export class AirplaneRotaColisaoComponent implements OnInit {
   checkCollision() {
     this.validate();
     let hasToLog = false;
-    let report = `<p><strong>Aviões com tempo mínimo de ${this.minTime}s com o outro avião: </strong></p>`;
+    let report = `<p><strong>Aviões em rota de colisão com tempo minimo de ${this.minTime}s com outro avião: </strong></p>`;
 
     const trackCollision: any = [];
 
@@ -101,11 +101,11 @@ export class AirplaneRotaColisaoComponent implements OnInit {
               // Verifica se o tempo esta de acordo com o minimo
               if (px1 < this.minTime) {
                 hasToLog = true;
-                const xColision = (Number(airplane.x) + Number(Vx1) * Number(px1));
-                const yColision = (Number(airplane.y) + Number(Vy1) * Number(px1));
+                // const xColision = (Number(airplane.x) + Number(Vx1) * Number(px1));
+                // const yColision = (Number(airplane.y) + Number(Vy1) * Number(px1));
 
                 const airplaneToReport = `
-                  <p>ID ${airplane.id} - Distância de</p>
+                  <p>IDs [${airplane.id},${nextAirplane.id}] - Tempo mínimo de: ${px1}s</p>
                 `;
 
                 report = report + airplaneToReport;
@@ -117,7 +117,7 @@ export class AirplaneRotaColisaoComponent implements OnInit {
     });
 
     if (!hasToLog) {
-      report = report + (`Nenhum avião em rota de colisão no tempo informado`);
+      report = report + (`Nenhum avião em rota de colisão no tempo mínimo informado`);
     }
 
     this.changeReport.emit(report);
