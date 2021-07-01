@@ -56,6 +56,12 @@ export class ConfigurationBarComponent implements OnInit {
     return Math.ceil(Math.random() * (max - min) + min);
   }
 
+  deleteAll() {
+    this.reportMessage = '';
+    this.showReportNotification = false;
+    this.setCollection.emit([]);
+  }
+
   generateExamples() {
     const airplanes: Airplane[] = [];
 

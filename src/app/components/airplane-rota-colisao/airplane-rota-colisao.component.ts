@@ -101,11 +101,8 @@ export class AirplaneRotaColisaoComponent implements OnInit {
               // Verifica se o tempo esta de acordo com o minimo
               if (px1 < this.minTime) {
                 hasToLog = true;
-                // const xColision = (Number(airplane.x) + Number(Vx1) * Number(px1));
-                // const yColision = (Number(airplane.y) + Number(Vy1) * Number(px1));
-
                 const airplaneToReport = `
-                  <p>IDs [${airplane.id},${nextAirplane.id}] - Tempo mínimo de: ${px1}s</p>
+                  <p>IDs [${airplane.id},${nextAirplane.id}] - Tempo mínimo de: ${this.formatNumber((px1 * 100))}s</p>
                 `;
 
                 report = report + airplaneToReport;
