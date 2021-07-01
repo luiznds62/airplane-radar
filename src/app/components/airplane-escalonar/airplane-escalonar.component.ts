@@ -36,14 +36,16 @@ export class AirplaneEscalonarComponent implements OnInit {
   escalonar() {
     this.validate();
     this.airplanes.forEach(airplane => {
-      if (airplane.selected) {
-        airplane.x = Number((Number(airplane.x) * Number(this.x / 100)));
-        airplane.y = Number((Number(airplane.y) * Number(this.y / 100)));
-
-        // Polar
-        airplane.radius = this.applicationLogicService.calculatePolarCoordinatesRadius(airplane.x, airplane.y) || 0;
-        airplane.angle = this.applicationLogicService.calculatePolarCoordinatesAngle(airplane.x, airplane.y) || 0;
+      if (!airplane.selected) {
+        return;
       }
+
+      airplane.x = Number((Number(airplane.x) * Number(this.x / 100)));
+      airplane.y = Number((Number(airplane.y) * Number(this.y / 100)));
+
+      // Polar
+      airplane.radius = this.applicationLogicService.calculatePolarCoordinatesRadius(airplane.x, airplane.y) || 0;
+      airplane.angle = this.applicationLogicService.calculatePolarCoordinatesAngle(airplane.x, airplane.y) || 0;
     });
 
     this.clear();

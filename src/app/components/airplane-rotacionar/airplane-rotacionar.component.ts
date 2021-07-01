@@ -1,14 +1,14 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { Airplane } from 'src/app/models/Airplane';
+import {Airplane} from 'src/app/models/Airplane';
 import {ApplicationLogicService} from '../../services/application-logic.service';
 
 @Component({
-    selector: 'app-airplane-rotacionar',
-    templateUrl: './airplane-rotacionar.component.html',
-    styleUrls: ['./airplane-rotacionar.component.css'],
+  selector: 'app-airplane-rotacionar',
+  templateUrl: './airplane-rotacionar.component.html',
+  styleUrls: ['./airplane-rotacionar.component.css'],
 })
 export class AirplaneRotacionarComponent implements OnInit {
-    @Input() airplanes: Airplane[] = [];
+  @Input() airplanes: Airplane[] = [];
   @Output() changeCollection = new EventEmitter();
 
   x: any = '';
@@ -43,6 +43,10 @@ export class AirplaneRotacionarComponent implements OnInit {
 
     // Percorre todos os dados da grid
     this.airplanes.forEach(airplane => {
+      if (!airplane.selected) {
+        return;
+      }
+
       // Armazena pois os valores se alteram
       const x = Number(airplane.x) - Number(this.x);
       const y = Number(airplane.y) - Number(this.y);
@@ -60,7 +64,7 @@ export class AirplaneRotacionarComponent implements OnInit {
       // Calcular polar
       airplane.radius = this.applicationLogicService.calculatePolarCoordinatesRadius(airplane.x, airplane.y) || 0;
       airplane.angle = this.applicationLogicService.calculatePolarCoordinatesAngle(airplane.x, airplane.y) || 0;
-    })
+    });
 
     this.clear();
     this.changeCollection.emit(this.airplanes);
