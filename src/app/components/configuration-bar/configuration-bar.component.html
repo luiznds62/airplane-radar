@@ -1,77 +1,99 @@
 <div class="configuration-bar-container">
-    <div id="registerDropdown" class="dropdown">
-        <button class="btn btn-primary" role="button" data-mdb-toggle="dropdown" data-mdb-auto-close="outside" aria-expanded="false"><i class="fa fa-plus me-2"></i>Avião</button>
-        <ul class="dropdown-menu" style="width: 400px">
-            <form>
-                <li>
-                    <app-airplane-register [airplanes]="airplanes" (newAirplane)="new($event)"></app-airplane-register>
-                </li>
-            </form>
+  <div id="registerDropdown" class="dropdown">
+    <button class="btn btn-primary" role="button" data-mdb-toggle="dropdown" data-mdb-auto-close="outside"
+            aria-expanded="false"><i class="fa fa-plus me-2"></i>Avião
+    </button>
+    <ul class="dropdown-menu" style="width: 400px">
+      <form>
+        <li>
+          <app-airplane-register [airplanes]="airplanes" (newAirplane)="new($event)"></app-airplane-register>
+        </li>
+      </form>
+    </ul>
+  </div>
+  <div>
+    <div class="btn-toolbar" role="toolbar">
+      <div class="btn-group me-2" role="group" aria-label="First group">
+        <button type="button" class="btn btn-primary" (click)="showReportNotification = false;"
+                data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+          <span>Relatório</span>
+          <span *ngIf="showReportNotification" class="badge bg-danger ms-2">!</span>
+        </button>
+        <ul class="dropdown-menu">
+          <form>
+            <li class="p-2">
+              <div [innerHTML]="reportMessage"></div>
+            </li>
+          </form>
         </ul>
+        <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside"
+                aria-expanded="false">Translandar
+        </button>
+        <ul class="dropdown-menu">
+          <form>
+            <li>
+              <app-airplane-translandar [airplanes]="airplanes"
+                                        (changeCollection)="changeCollection($event)"></app-airplane-translandar>
+            </li>
+          </form>
+        </ul>
+        <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside"
+                aria-expanded="false">Escalonar
+        </button>
+        <ul class="dropdown-menu">
+          <form>
+            <li>
+              <app-airplane-escalonar [airplanes]="airplanes"
+                                      (changeCollection)="changeCollection($event)"></app-airplane-escalonar>
+            </li>
+          </form>
+        </ul>
+        <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside"
+                aria-expanded="false">Rotacionar
+        </button>
+        <ul class="dropdown-menu">
+          <form>
+            <li>
+              <app-airplane-rotacionar [airplanes]="airplanes"
+                                       (changeCollection)="changeCollection($event)"></app-airplane-rotacionar>
+            </li>
+          </form>
+        </ul>
+        <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside"
+                aria-expanded="false">Aviões próximos ao aeroporto
+        </button>
+        <ul class="dropdown-menu">
+          <form>
+            <li>
+              <app-airplane-proximos-aeroporto [airplanes]="airplanes"
+                                               (changeReport)="changeReport($event)"></app-airplane-proximos-aeroporto>
+            </li>
+          </form>
+        </ul>
+        <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside"
+                aria-expanded="false">Aviões próximos
+        </button>
+        <ul class="dropdown-menu">
+          <form>
+            <li>
+              <app-airplane-avioes-proximos [airplanes]="airplanes"
+                                            (changeReport)="changeReport($event)"></app-airplane-avioes-proximos>
+            </li>
+          </form>
+        </ul>
+        <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside"
+                aria-expanded="false">Em rota de colisão
+        </button>
+        <ul class="dropdown-menu">
+          <form>
+            <li>
+              <app-airplane-rota-colisao [airplanes]="airplanes"
+                                         (changeReport)="changeReport($event)"></app-airplane-rota-colisao>
+            </li>
+          </form>
+        </ul>
+        <button type="button" class="btn btn-secondary" (click)="generateExamples()">Gerar exemplos</button>
+      </div>
     </div>
-    <div>
-        <div class="btn-toolbar" role="toolbar">
-            <div class="btn-group me-2" role="group" aria-label="First group">
-                <button type="button" class="btn btn-primary" (click)="showReportNotification = false;" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                  <span>Relatório</span>
-                  <span *ngIf="showReportNotification" class="badge bg-danger ms-2">!</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <form>
-                        <li class="p-2">
-                          <div [innerHTML]="reportMessage"></div>
-                        </li>
-                    </form>
-                </ul>
-                <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Translandar</button>
-                <ul class="dropdown-menu">
-                    <form>
-                        <li>
-                            <app-airplane-translandar [airplanes]="airplanes" (changeCollection)="changeCollection($event)"></app-airplane-translandar>
-                        </li>
-                    </form>
-                </ul>
-                <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Escalonar</button>
-                <ul class="dropdown-menu">
-                    <form>
-                        <li>
-                            <app-airplane-escalonar [airplanes]="airplanes" (changeCollection)="changeCollection($event)"></app-airplane-escalonar>
-                        </li>
-                    </form>
-                </ul>
-                <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Rotacionar</button>
-                <ul class="dropdown-menu">
-                    <form>
-                        <li>
-                            <app-airplane-rotacionar [airplanes]="airplanes" (changeCollection)="changeCollection($event)"></app-airplane-rotacionar>
-                        </li>
-                    </form>
-                </ul>
-                <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Aviões próximos ao aeroporto</button>
-                <ul class="dropdown-menu">
-                    <form>
-                        <li>
-                            <app-airplane-proximos-aeroporto [airplanes]="airplanes" (changeReport)="changeReport($event)"></app-airplane-proximos-aeroporto>
-                        </li>
-                    </form>
-                </ul>
-                <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Aviões próximos</button>
-                <ul class="dropdown-menu">
-                    <form>
-                        <li>
-                            <app-airplane-avioes-proximos [airplanes]="airplanes" (changeReport)="changeReport($event)"></app-airplane-avioes-proximos>
-                        </li>
-                    </form>
-                </ul>
-                <button type="button" class="btn btn-primary" data-mdb-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Em rota de colisão</button>
-                <ul class="dropdown-menu">
-                    <form>
-                        <li>
-                            <app-airplane-rota-colisao [airplanes]="airplanes" (changeReport)="changeReport($event)"></app-airplane-rota-colisao>
-                        </li>
-                    </form>
-                </ul>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
