@@ -1,5 +1,27 @@
-<nav class="navbar navbar-light bg-dark">
-  <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1 text-white">Computação Gráfica</span>
+<nav class='navbar navbar-light bg-dark'>
+  <div class='container-fluid'>
+    <span class='navbar-brand mb-0 h1 text-white'>Computação Gráfica</span>
+    <ul class='navbar-nav'>
+      <!-- Dropdown -->
+      <li class='nav-item dropdown'>
+        <a
+          class='nav-link dropdown-toggle text-white'
+          href='#'
+          id='navbarDropdownMenuLink'
+          role='button'
+          data-mdb-toggle='dropdown'
+          aria-expanded='false'>
+          Funções de ajuda
+        </a>
+        <ul class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
+          <li>
+            <a class='dropdown-item' (click)='generateExamples()'>Gerar exemplos</a>
+          </li>
+          <li>
+            <a class='dropdown-item' (click)='deleteAll()'>Limpar</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </nav>
